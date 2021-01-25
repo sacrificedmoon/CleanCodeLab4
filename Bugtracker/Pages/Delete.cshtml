@@ -1,0 +1,24 @@
+﻿@page
+@model Bugtracker.Pages.DeleteModel
+@{
+}
+<h1>Remove bug from database</h1>
+
+<h3>Is the bug completed?</h3>
+<div>
+    
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Bug.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Bug.Description)
+        </dd>
+    </dl>
+
+    <form method="post">
+        <input type="hidden" asp-for="Bug.Id" />
+        <input id="submit-button" type="submit" value="Yes, delete" class="btn btn-danger" /> |
+        <a id="cancel-link" asp-page="./Index">No</a>
+    </form>
+</div>

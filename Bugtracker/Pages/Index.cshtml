@@ -1,0 +1,37 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<h3>Bugs</h3>
+
+<p>
+    <a id="create-link" asp-page="Create">Create a new bug</a>
+</p>
+
+<p>@ViewData["Message"]</p>
+
+<table class="table text-center table-responsive-md">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Bugs[0].Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody class="trMiddle">
+        @foreach (var bug in Model.Bugs)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => bug.Description)
+            </td>
+            <td>
+                <a id="delete-link-nr-@bug.Id" asp-page="./Delete" asp-route-id="@bug.Id">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

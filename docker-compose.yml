@@ -1,0 +1,20 @@
+version: '3.4'
+
+services:
+  bugtracker:
+    image: ${DOCKER_REGISTRY-}bugtracker
+    build:
+      context: .
+      dockerfile: Bugtracker/Dockerfile
+
+  bugtrackerbackend:
+    image: ${DOCKER_REGISTRY-}bugtrackerbackend
+    build:
+      context: .
+      dockerfile: BugtrackerBackend/Dockerfile
+
+  bugtrackerdb:
+    image: "mcr.microsoft.com/mssql/server:2017-latest"
+    environment: 
+        SA_PASSWORD: "1Secure*Password1"
+        ACCEPT_EULA: "Y" 
