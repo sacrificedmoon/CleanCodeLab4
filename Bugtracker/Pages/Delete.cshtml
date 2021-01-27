@@ -18,7 +18,7 @@
 
     <form method="post">
         <input type="hidden" asp-for="Bug.Id" />
-        <input id="submit-button" type="submit" value="Yes, delete" class="btn btn-danger" /> |
+        <input id="submit-button" type="submit" value="Yes, delete" class="btn btn-danger" data-cy="delete-bug"/> |
         <a id="cancel-link" asp-page="./Index">No</a>
     </form>
 </div>
